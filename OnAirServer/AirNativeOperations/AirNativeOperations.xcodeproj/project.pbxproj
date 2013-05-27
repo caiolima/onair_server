@@ -1,0 +1,234 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2537DED6163ABA48006312BA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2537DED5163ABA48006312BA /* main.cpp */; };
+		2537DED8163ABA48006312BA /* AirNativeOperations.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2537DED7163ABA48006312BA /* AirNativeOperations.1 */; };
+		2537DEE8163ABB92006312BA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2537DEE7163ABB92006312BA /* Security.framework */; };
+		2537DEEA163ABB9C006312BA /* JavaVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2537DEE9163ABB9C006312BA /* JavaVM.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2537DECF163ABA48006312BA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				2537DED8163ABA48006312BA /* AirNativeOperations.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2537DED1163ABA48006312BA /* AirNativeOperations */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AirNativeOperations; sourceTree = BUILT_PRODUCTS_DIR; };
+		2537DED5163ABA48006312BA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		2537DED7163ABA48006312BA /* AirNativeOperations.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = AirNativeOperations.1; sourceTree = "<group>"; };
+		2537DEE7163ABB92006312BA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2537DEE9163ABB9C006312BA /* JavaVM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaVM.framework; path = System/Library/Frameworks/JavaVM.framework; sourceTree = SDKROOT; };
+		2537DEEB163ABC2D006312BA /* com_five_onair_server_utils_FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = com_five_onair_server_utils_FileUtils.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2537DECE163ABA48006312BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2537DEEA163ABB9C006312BA /* JavaVM.framework in Frameworks */,
+				2537DEE8163ABB92006312BA /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2537DEC6163ABA48006312BA = {
+			isa = PBXGroup;
+			children = (
+				2537DEE9163ABB9C006312BA /* JavaVM.framework */,
+				2537DEE7163ABB92006312BA /* Security.framework */,
+				2537DED4163ABA48006312BA /* AirNativeOperations */,
+				2537DED2163ABA48006312BA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2537DED2163ABA48006312BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2537DED1163ABA48006312BA /* AirNativeOperations */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2537DED4163ABA48006312BA /* AirNativeOperations */ = {
+			isa = PBXGroup;
+			children = (
+				2537DEEB163ABC2D006312BA /* com_five_onair_server_utils_FileUtils.h */,
+				2537DED5163ABA48006312BA /* main.cpp */,
+				2537DED7163ABA48006312BA /* AirNativeOperations.1 */,
+			);
+			path = AirNativeOperations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2537DED0163ABA48006312BA /* AirNativeOperations */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2537DEDB163ABA48006312BA /* Build configuration list for PBXNativeTarget "AirNativeOperations" */;
+			buildPhases = (
+				2537DECD163ABA48006312BA /* Sources */,
+				2537DECE163ABA48006312BA /* Frameworks */,
+				2537DECF163ABA48006312BA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AirNativeOperations;
+			productName = AirNativeOperations;
+			productReference = 2537DED1163ABA48006312BA /* AirNativeOperations */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2537DEC8163ABA48006312BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Five Startup";
+			};
+			buildConfigurationList = 2537DECB163ABA48006312BA /* Build configuration list for PBXProject "AirNativeOperations" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2537DEC6163ABA48006312BA;
+			productRefGroup = 2537DED2163ABA48006312BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2537DED0163ABA48006312BA /* AirNativeOperations */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2537DECD163ABA48006312BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2537DED6163ABA48006312BA /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2537DED9163ABA48006312BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/JavaVM.framework/Versions/A/Headers/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2537DEDA163ABA48006312BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/JavaVM.framework/Versions/A/Headers/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2537DEDC163ABA48006312BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/JavaVM.framework/Versions/A/Headers/**",
+					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Security.framework/Versions/A/Headers/**",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2537DEDD163ABA48006312BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/JavaVM.framework/Versions/A/Headers/**",
+					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Security.framework/Versions/A/Headers/**",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2537DECB163ABA48006312BA /* Build configuration list for PBXProject "AirNativeOperations" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2537DED9163ABA48006312BA /* Debug */,
+				2537DEDA163ABA48006312BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2537DEDB163ABA48006312BA /* Build configuration list for PBXNativeTarget "AirNativeOperations" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2537DEDC163ABA48006312BA /* Debug */,
+				2537DEDD163ABA48006312BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2537DEC8163ABA48006312BA /* Project object */;
+}

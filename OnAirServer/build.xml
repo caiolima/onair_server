@@ -1,0 +1,26 @@
+<project name="create-lib" basedir="." default="main">
+
+    <target name="main">
+  		<exec executable="gcc">
+    		<arg value="-I/System/Library/Frameworks/JavaVM.framework/Versions/A/Headers"/>
+            <arg value="-I/System/Library/Frameworks/Security.framework/Versions/A/Headers"/>
+    		<arg value="-c"/>
+    		<arg value="c/AirNativeOperations/main.cpp"/>	
+  		</exec>
+  		
+  		<exec executable="g++">
+  		    <arg value="-dynamiclib"/>
+  		    <arg value="-o"/>
+  		    <arg value="libAirNativeOperations.jnilib"/>
+            <arg value="-framework"/>
+            <arg value="Security"/>
+  		    <arg value="main.o"/>
+  		    
+  		</exec>
+  		
+  		<exec executable="rm">
+  		    <arg value="main.o"/>
+  		</exec>
+	</target>
+    
+</project>
