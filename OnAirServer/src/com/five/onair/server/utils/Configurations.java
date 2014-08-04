@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -54,18 +55,32 @@ public class Configurations {
 		}
 	}
 
-	public static String getLocalIpAddress() {
-		try {
-			InetAddress addr = InetAddress.getLocalHost();
+	public String getLocalIpAddress() {
+		 String ipAddress = null;
+		    Enumeration<NetworkInterface> net = null;
+		    try {
+		        net = NetworkInterface.getNetworkInterfaces();
+		    } catch (SocketException e) {
+		        throw new RuntimeException(e);
+		    }
 
-			String hostAdress = addr.getHostAddress();
+		    while(net.hasMoreElements()){
+		        NetworkInterface element = net.nextElement();
+		        Enumeration<InetAddress> addresses = element.getInetAddresses();
+		        while (addresses.hasMoreElements()){
+		            InetAddress ip = addresses.nextElement();
+		            if (ip instanceof Inet4Address){
 
-			// Get hostname
-			return hostAdress;
-		} catch (UnknownHostException e) {
-		}
+		                if (ip.isSiteLocalAddress()){
 
-		return null;
+		                    ipAddress = ip.getHostAddress();
+		                }
+
+		            }
+
+		        }
+		    }
+		    return ipAddress;
 
 	}
 
