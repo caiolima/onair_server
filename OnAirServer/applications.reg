@@ -1,1 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><applications><application><name>Semcomp</name><description>semcomp app</description><instaled-location>none</instaled-location><url>semcomp</url></application><application><name>Teste MVC</name><description>teste</description><instaled-location>none</instaled-location><url>testemvc</url></application></applications>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<application><name>ufbamonitoria</name><description>monitoria</description><instaled-location>none</instaled-location><url>ProjetoMonitoria</url></application>

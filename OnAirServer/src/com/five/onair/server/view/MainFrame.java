@@ -7,14 +7,21 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.GridBagLayout;
+
 import javax.swing.JLabel;
+
 import java.awt.GridBagConstraints;
+
 import javax.swing.JButton;
+
 import java.awt.Insets;
+
 import javax.swing.JTextArea;
 
-import com.five.onair.server.DiscoveryThread;
+import com.five.onair.server.ListenThread;
+import com.five.onair.server.utils.Configurations;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -31,7 +38,7 @@ public class MainFrame extends JFrame {
 	private JPanel contentPane;
 	private JTextArea textArea;
 	private JButton btnStart;
-	private Thread discoveryThread;
+	private Thread listenThread;
 	private DatagramSocket socket;
 	private JButton btnNewButton;
 	private JButton btnInstalar;
@@ -83,13 +90,14 @@ public class MainFrame extends JFrame {
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				if (!discoveryThread.isAlive()) {
+				if (!listenThread.isAlive()) {
 
 					try{
-						discoveryThread.start();
+						listenThread.start();
 					}catch (IllegalThreadStateException ie) {
 						try {
-							socket = new DatagramSocket(8888, InetAddress.getByName("0.0.0.0"));
+							//socket = new DatagramSocket(8888, InetAddress.getByName("0.0.0.0"));
+							socket = new DatagramSocket(8888, InetAddress.getByName(Configurations.getInstance().getLocalIpAddress()));
 							socket.setBroadcast(true);
 						} catch (SocketException e1) {
 							// TODO Auto-generated catch block
@@ -99,19 +107,18 @@ public class MainFrame extends JFrame {
 							e1.printStackTrace();
 						}
 						
-						
-						discoveryThread=new DiscoveryThread(textArea, socket);
-						discoveryThread.start();
+						listenThread=new ListenThread(textArea, socket);
+						listenThread.start();
 						
 					}
 					btnStart.setText("Stop");
 
 					appendToLog("Servidor iniciado");
 				} else {
-					discoveryThread.interrupt();
+					listenThread.interrupt();
 					socket.close();
 					try {
-						discoveryThread.join();
+						listenThread.join();
 					} catch (InterruptedException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -131,7 +138,7 @@ public class MainFrame extends JFrame {
 		gbc_btnStart.gridy = 0;
 		contentPane.add(btnStart, gbc_btnStart);
 		
-		btnNewButton = new JButton("Configurações...");
+		btnNewButton = new JButton("Configura¬ç‚Ä∫es...");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ConfigFrame frame=ConfigFrame.getInstance();
@@ -182,18 +189,15 @@ public class MainFrame extends JFrame {
 		
 		
 		try {
-			socket = new DatagramSocket(8888, InetAddress.getByName("0.0.0.0"));
+			socket = new DatagramSocket(8888);
 			socket.setBroadcast(true);
 			
 		} catch (SocketException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		} catch (UnknownHostException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
 		}
 		
-		discoveryThread=new DiscoveryThread(textArea, socket);
+		listenThread=new ListenThread(textArea, socket);
 
 	}
 
