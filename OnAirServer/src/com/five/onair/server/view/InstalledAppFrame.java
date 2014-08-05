@@ -127,18 +127,19 @@ public class InstalledAppFrame extends JFrame implements AppListDelegate {
 		if (table == null)
 			return;
 
-		String[] columnNames = { "Nome", "Descrição", "Caminho" };
+		String[] columnNames = { "Nome", "protocolo", "Porta", "Caminho" };
 
 		list = ApplicationList.getInstance();
 
-		Object[][] table_value = new Object[list.size()][3];
+		Object[][] table_value = new Object[list.size()][4];
 		for (int i = 0; i < list.size(); i++) {
 
 			Application app = list.get(i);
 
 			table_value[i][0] = app.getName();
-			table_value[i][1] = app.getDescription();
-			table_value[i][2] = app.getInstalledLocation();
+			table_value[i][1] = app.getProtocol();
+			table_value[i][2] = app.getPort();
+			table_value[i][3] = app.getInstalledLocation();
 		}
 		model = new DefaultTableModel(table_value, columnNames);
 		table.setModel(model);
