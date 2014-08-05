@@ -66,25 +66,25 @@ public class UnistallAppDialog extends JDialog {
 				Double.MIN_VALUE };
 		gbl_contentPanel.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		contentPanel.setLayout(gbl_contentPanel);
-		{
-			JLabel lblNewLabel = new JLabel(
-					new ImageIcon(
-							UnistallAppDialog.class
-									.getResource("/com/sun/java/swing/plaf/gtk/resources/gtk-dialog-warning-6.png")));
-
-			GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-			gbc_lblNewLabel.fill = GridBagConstraints.BOTH;
-			gbc_lblNewLabel.insets = new Insets(0, 20, 0, 15);
-			gbc_lblNewLabel.gridheight = 2;
-			gbc_lblNewLabel.gridx = 0;
-			gbc_lblNewLabel.gridy = 0;
-			contentPanel.add(lblNewLabel, gbc_lblNewLabel);
-		}
+//		{
+//			JLabel lblNewLabel = new JLabel(
+//					new ImageIcon(
+//							UnistallAppDialog.class
+//									.getResource("/com/sun/java/swing/plaf/gtk/resources/gtk-dialog-warning-6.png")));
+//
+//			GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+//			gbc_lblNewLabel.fill = GridBagConstraints.BOTH;
+//			gbc_lblNewLabel.insets = new Insets(0, 20, 0, 15);
+//			gbc_lblNewLabel.gridheight = 2;
+//			gbc_lblNewLabel.gridx = 0;
+//			gbc_lblNewLabel.gridy = 0;
+//			contentPanel.add(lblNewLabel, gbc_lblNewLabel);
+//		}
 		{
 			lblVocTemCerteza = new JLabel(
 					"<html><body>Voc\u00EA tem certeza que deseja deletar a aplica\u00E7\u00E3o <b>"
 							+ currentApplication.getName()
-							+ "</b>?<br/>Esta operação não poderá ser desfeita!</body></html>");
+							+ "</b>?<br/>Esta operaÔøΩÔøΩo nÔøΩo poderÔøΩ ser desfeita!</body></html>");
 			GridBagConstraints gbc_lblVocTemCerteza = new GridBagConstraints();
 			gbc_lblVocTemCerteza.fill = GridBagConstraints.BOTH;
 			gbc_lblVocTemCerteza.anchor = GridBagConstraints.WEST;
@@ -126,7 +126,7 @@ public class UnistallAppDialog extends JDialog {
 //								if (!deleted) {
 //									UserOutUtils
 //											.showPopUP(
-//													"Ocorreu algum problema quando tentamos deletar o aplicativo!\nVerifique se ele está sendo usado por outro programa.",
+//													"Ocorreu algum problema quando tentamos deletar o aplicativo!\nVerifique se ele estÔøΩ sendo usado por outro programa.",
 //													UnistallAppDialog.this);
 //									return;
 //								}
@@ -167,7 +167,7 @@ public class UnistallAppDialog extends JDialog {
 		chk_deleteFlag.setSelected(false);
 		lblVocTemCerteza.setText("<html><body>Voc\u00EA tem certeza que deseja deletar a aplica\u00E7\u00E3o <b>"
 							+ currentApplication.getName()
-							+ "</b>?<br/>Esta operação não poderá ser desfeita!</body></html>");
+							+ "</b>?<br/>Esta operaÔøΩÔøΩo nÔøΩo poderÔøΩ ser desfeita!</body></html>");
 	}
 
 }

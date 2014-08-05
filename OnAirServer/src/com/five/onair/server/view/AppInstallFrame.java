@@ -1,5 +1,6 @@
 package com.five.onair.server.view;
 
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -36,17 +37,18 @@ public class AppInstallFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txt_name;
-	private JLabel lblDescrio;
-	private JTextField txt_desc;
+	private JLabel lblPort;
+	private JTextField txt_port;
 	private JLabel lblCaminhoApp;
 	private JTextField txt_appPath;
 	private JButton btnInstalar;
+	private JComboBox<String> cmb_protocol;
 	private String path_name;
 
 	public static AppInstallFrame getInstance() {
 		if (singleton == null)
 			singleton = new AppInstallFrame();
-		
+
 		return singleton;
 	}
 
@@ -55,74 +57,90 @@ public class AppInstallFrame extends JFrame {
 	 */
 	private AppInstallFrame() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		
+
 		addWindowListener(new WindowListener() {
-			
+
 			@Override
 			public void windowOpened(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void windowIconified(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void windowDeiconified(WindowEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void windowDeactivated(WindowEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void windowClosing(WindowEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void windowClosed(WindowEvent arg0) {
 				cleanValues();
-				
+
 			}
-			
+
 			@Override
 			public void windowActivated(WindowEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
-		
+
 		setResizable(false);
 		setTitle("Instalando aplica\u00E7\u00E3o");
-		setBounds(100, 100, 325, 243);
+		setBounds(100, 100, 325, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[] { 0, 0, 0 };
-		gbl_contentPane.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0,
-				0 };
+		gbl_contentPane.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
 		gbl_contentPane.columnWeights = new double[] { 1.0, 0.0,
 				Double.MIN_VALUE };
 		gbl_contentPane.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0,
 				0.0, 0.0, Double.MIN_VALUE };
 		contentPane.setLayout(gbl_contentPane);
 
+		JLabel lblProtocol = new JLabel("Protocolo:");
+		GridBagConstraints gbc_lblProtocol = new GridBagConstraints();
+		gbc_lblProtocol.anchor = GridBagConstraints.WEST;
+		gbc_lblProtocol.insets = new Insets(5, 5, 5, 5);
+		gbc_lblProtocol.gridx = 0;
+		gbc_lblProtocol.gridy = 0;
+		contentPane.add(lblProtocol, gbc_lblProtocol);
+
+		cmb_protocol = new JComboBox<String>();
+		GridBagConstraints gbc_comboBox = new GridBagConstraints();
+		gbc_comboBox.gridwidth = 2;
+		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
+		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBox.gridx = 0;
+		gbc_comboBox.gridy = 1;
+		contentPane.add(cmb_protocol, gbc_comboBox);
+		cmb_protocol.addItem("tcp");
+		cmb_protocol.addItem("http");
+
 		JLabel lblNewLabel = new JLabel("Nome:");
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel.insets = new Insets(5, 5, 5, 5);
 		gbc_lblNewLabel.gridx = 0;
-		gbc_lblNewLabel.gridy = 0;
+		gbc_lblNewLabel.gridy = 2;
 		contentPane.add(lblNewLabel, gbc_lblNewLabel);
 
 		txt_name = new JTextField();
@@ -131,125 +149,101 @@ public class AppInstallFrame extends JFrame {
 		gbc_textField.insets = new Insets(0, 0, 5, 0);
 		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textField.gridx = 0;
-		gbc_textField.gridy = 1;
+		gbc_textField.gridy = 3;
 		contentPane.add(txt_name, gbc_textField);
 		txt_name.setColumns(10);
 
-		lblDescrio = new JLabel("Descri\u00E7\u00E3o:");
-		GridBagConstraints gbc_lblDescrio = new GridBagConstraints();
-		gbc_lblDescrio.insets = new Insets(0, 5, 5, 5);
-		gbc_lblDescrio.anchor = GridBagConstraints.WEST;
-		gbc_lblDescrio.gridx = 0;
-		gbc_lblDescrio.gridy = 2;
-		contentPane.add(lblDescrio, gbc_lblDescrio);
+		lblPort = new JLabel("Porta:");
+		GridBagConstraints gbc_lblPorta = new GridBagConstraints();
+		gbc_lblPorta.insets = new Insets(0, 5, 5, 5);
+		gbc_lblPorta.anchor = GridBagConstraints.WEST;
+		gbc_lblPorta.gridx = 0;
+		gbc_lblPorta.gridy = 4;
+		contentPane.add(lblPort, gbc_lblPorta);
 
-		txt_desc = new JTextField();
+		txt_port = new JTextField();
 		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
 		gbc_textField_1.gridwidth = 2;
 		gbc_textField_1.insets = new Insets(0, 0, 5, 0);
 		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textField_1.gridx = 0;
-		gbc_textField_1.gridy = 3;
-		contentPane.add(txt_desc, gbc_textField_1);
-		txt_desc.setColumns(10);
-		
-				lblCaminhoApp = new JLabel("Caminho App:");
-				GridBagConstraints gbc_lblCaminhoApp = new GridBagConstraints();
-				gbc_lblCaminhoApp.anchor = GridBagConstraints.WEST;
-				gbc_lblCaminhoApp.insets = new Insets(0, 5, 5, 5);
-				gbc_lblCaminhoApp.gridx = 0;
-				gbc_lblCaminhoApp.gridy = 4;
-				contentPane.add(lblCaminhoApp, gbc_lblCaminhoApp);
-		
-				txt_appPath = new JTextField();
-				GridBagConstraints gbc_textField_3 = new GridBagConstraints();
-				gbc_textField_3.gridwidth = 2;
-				gbc_textField_3.insets = new Insets(0, 0, 5, 5);
-				gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
-				gbc_textField_3.gridx = 0;
-				gbc_textField_3.gridy = 5;
-				contentPane.add(txt_appPath, gbc_textField_3);
-				txt_appPath.setColumns(10);
-		
-				btnInstalar = new JButton("Instalar");
-				btnInstalar.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
+		gbc_textField_1.gridy = 5;
+		contentPane.add(txt_port, gbc_textField_1);
+		txt_port.setColumns(5);
 
-						if (txt_name.getText().equals("")) {
-							UserOutUtils.showPopUP("Por favor, insira um nome!",
-									AppInstallFrame.this);
-							return;
-						}
+		lblCaminhoApp = new JLabel("Caminho App:");
+		GridBagConstraints gbc_lblCaminhoApp = new GridBagConstraints();
+		gbc_lblCaminhoApp.anchor = GridBagConstraints.WEST;
+		gbc_lblCaminhoApp.insets = new Insets(0, 5, 5, 5);
+		gbc_lblCaminhoApp.gridx = 0;
+		gbc_lblCaminhoApp.gridy = 6;
+		contentPane.add(lblCaminhoApp, gbc_lblCaminhoApp);
 
-						if (txt_desc.getText().equals("")) {
-							UserOutUtils.showPopUP("Por favor, insira uma descrição!",
-									AppInstallFrame.this);
-							return;
-						}
+		txt_appPath = new JTextField();
+		GridBagConstraints gbc_textField_3 = new GridBagConstraints();
+		gbc_textField_3.gridwidth = 2;
+		gbc_textField_3.insets = new Insets(0, 0, 5, 5);
+		gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField_3.gridx = 0;
+		gbc_textField_3.gridy = 7;
+		contentPane.add(txt_appPath, gbc_textField_3);
+		txt_appPath.setColumns(10);
 
-						if (txt_appPath.getText().equals("")) {
-							UserOutUtils.showPopUP(
-									"Por favor, selecione a pasta da aplicação!",
-									AppInstallFrame.this);
-							return;
-						}
+		btnInstalar = new JButton("Instalar");
+		btnInstalar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 
-						String appPath=txt_appPath.getText().trim();
-//						File dir=new File(appPath);
-//						
-//						if (appPath.equals("")||!dir.exists()) {
-//							UserOutUtils.showPopUP(
-//									"O caminho da aplicação não é válido. Verifique se o caminho está correto!",
-//									AppInstallFrame.this);
-//							return;
-//						}
-						
-						
-						
-						Application app=new Application();
-						
-						app.setName(txt_name.getText());
-						app.setDescription(txt_desc.getText());
-						app.setUrl(appPath);
-						
-//						//ApplicationList.getInstance().installApp(app);
-//						Configurations config=Configurations.getInstance();
-//						File app_folder=new File(txt_appPath.getText());
-//						
-//						File dest=new File(config.getServerPath()+"/"+path_name);
-//						
-//						try {
-//							FileUtils.copyDirectory(app_folder, dest);
-//						} catch (IOException e1) {
-//							boolean result=com.five.onair.server.utils.FileUtils.copyDirectoryLikeRoot(txt_appPath.getText(), config.getServerPath());
-//							if(result){
-//								app.setInstalledLocation(config.getServerPath()+"/"+path_name);
-//								
-//								UserOutUtils.showPopUP("Aplicação instalada com sucesso!", AppInstallFrame.this);
-//							}else{
-//								UserOutUtils.showPopUP("Erro ao instalar a aplicação!", AppInstallFrame.this);
-//							}
-//						}
-//						
-						ApplicationList.getInstance().installApp(app);
-						AppInstallFrame.this.setVisible(false);
-						
+				if (txt_name.getText().equals("")) {
+					UserOutUtils.showPopUP("Por favor, insira um nome!",
+							AppInstallFrame.this);
+					return;
+				}
 
-					}
-				});
-				GridBagConstraints gbc_btnInstalar = new GridBagConstraints();
-				gbc_btnInstalar.insets = new Insets(10, 0, 10, 0);
-				gbc_btnInstalar.gridx = 1;
-				gbc_btnInstalar.gridy = 6;
-				contentPane.add(btnInstalar, gbc_btnInstalar);
+				if (txt_port.getText().equals("")) {
+					UserOutUtils.showPopUP("Por favor, insira uma porta!",
+							AppInstallFrame.this);
+					return;
+				}
 				
+				String appPath = txt_appPath.getText().trim();
+				String selected_protocol = cmb_protocol.getSelectedItem().toString();
+				
+				if (selected_protocol.equals("http") && appPath.equals("")) {
+					UserOutUtils.showPopUP("Por favor, insira um caminho para a aplcia√ß√£o!",
+							AppInstallFrame.this);
+					return;
+				}
+				
+				if (appPath.equals("")) {
+					appPath = "/";
+				}
+				
+				Application app = new Application();
+
+				app.setName(txt_name.getText());
+				app.setDescription("default description");
+				app.setUrl(appPath);
+				app.setPort(txt_port.getText());
+				app.setProtocol(cmb_protocol.getSelectedItem().toString());
+				
+				ApplicationList.getInstance().installApp(app);
+				AppInstallFrame.this.setVisible(false);
+
+			}
+		});
+		GridBagConstraints gbc_btnInstalar = new GridBagConstraints();
+		gbc_btnInstalar.insets = new Insets(10, 0, 10, 0);
+		gbc_btnInstalar.gridx = 1;
+		gbc_btnInstalar.gridy = 8;
+		contentPane.add(btnInstalar, gbc_btnInstalar);
+
 	}
-	
-	public void cleanValues(){
+
+	public void cleanValues() {
 		txt_appPath.setText("");
-		txt_desc.setText("");
+		txt_port.setText("");
 		txt_name.setText("");
-		this.path_name="";
+		this.path_name = "";
 	}
 
 }

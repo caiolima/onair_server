@@ -53,6 +53,10 @@ public class AppListXMLManager {
 								Constants.XML_APPLICATION_URL, element));
 						application.setInstalledLocation(getValue(
 								Constants.XML_APPLICATION_INTALLED_LOCATION, element));
+						application.setPort(getValue(
+								Constants.XML_APPLICATION_PORT, element));
+						application.setProtocol(getValue(
+								Constants.XML_APPLICATION_PROTOCOL, element));
 
 						applications.add(application);
 					}
@@ -60,8 +64,8 @@ public class AppListXMLManager {
 
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
+		
 		return applications;
 
 	}
@@ -113,6 +117,16 @@ public class AppListXMLManager {
 				Element url = doc.createElement(Constants.XML_APPLICATION_URL);
 				url.appendChild(doc.createTextNode(app.getUrl()));
 				application.appendChild(url);
+				
+				// url element
+				Element port = doc.createElement(Constants.XML_APPLICATION_PORT);
+				port.appendChild(doc.createTextNode(app.getPort()));
+				application.appendChild(port);
+				
+				// url element
+				Element protocol = doc.createElement(Constants.XML_APPLICATION_PROTOCOL);
+				protocol.appendChild(doc.createTextNode(app.getProtocol()));
+				application.appendChild(protocol);
 
 			}
 

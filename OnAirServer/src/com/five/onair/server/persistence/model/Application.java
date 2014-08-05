@@ -4,7 +4,13 @@ import net.sf.json.JSONObject;
 
 public class Application {
 
-	private String name,description,url,installedLocation="none";
+	private String name;
+	private String description;
+	private String url;
+	private String installedLocation="none";
+	private String port;
+	private String protocol;
+	
 
 	public String getName() {
 		return name;
@@ -38,14 +44,30 @@ public class Application {
 		this.installedLocation = installedLocation;
 	}
 	
+	public String getPort() {
+		return port;
+	}
+
+	public void setPort(String port) {
+		this.port = port;
+	}
+
+	public String getProtocol() {
+		return protocol;
+	}
+
+	public void setProtocol(String protocol) {
+		this.protocol = protocol;
+	}
+	
 	public JSONObject getJSONFormat(){
 		JSONObject object=new JSONObject();
-		
-		
-		
+	
 		object.put("name", this.name);
 		object.put("description", this.description);
 		object.put("url", this.url);
+		object.put("port", this.port);
+		object.put("protocol", this.protocol);
 		
 		return object;
 	}
