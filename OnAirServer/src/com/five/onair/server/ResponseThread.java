@@ -12,27 +12,25 @@ import com.five.onair.server.utils.Configurations;
 
 public class ResponseThread extends Thread{
 	
-	private DatagramSocket socket;
 	private DatagramPacket packet;
 	private Configurations config;
 
 	
-	public ResponseThread(DatagramPacket receivePacket, DatagramSocket socket){
-		this.socket = socket;
+	public ResponseThread(DatagramPacket receivePacket){
 		this.packet = receivePacket;
 		this.config=Configurations.getInstance();
 
-		UDPServer.incrementThreadCount();
+		ListenThread.incrementThreadCount();
 	}
 
 	@Override
 	public void run() {
 		
 		// Packet received
-		UDPServer.appendToLog(getClass().getName()
+		ListenThread.appendToLog(getClass().getName()
 				+ ">>>Discovery packet received from: "
 				+ packet.getAddress().getHostAddress());
-		UDPServer.appendToLog(getClass().getName()
+		ListenThread.appendToLog(getClass().getName()
 				+ ">>>Packet received; data: "
 				+ new String(packet.getData()));
 
@@ -51,20 +49,20 @@ public class ResponseThread extends Thread{
 					sendData, sendData.length, packet.getAddress(),
 					packet.getPort());
 			try {
-				socket.send(sendPacket);
+				new DatagramSocket().send(sendPacket);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
-			UDPServer.appendToLog(getClass().getName()
+			ListenThread.appendToLog(getClass().getName()
 					+ ">>>Sent packet to: "
 					+ sendPacket.getAddress().getHostAddress());
 			
-			UDPServer.decrementThreadCount();
 		}
 		
-		
+		ListenThread.decrementThreadCount();
+
 	}
 	
 }

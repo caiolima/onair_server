@@ -1,5 +1,6 @@
 import java.net.Inet4Address;
 import java.net.InetAddress;
+import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.UnknownHostException;
@@ -8,7 +9,7 @@ import java.util.Enumeration;
 
 public class Tests {
 	
-	public static void main(String args[]) throws UnknownHostException{
+	public static void main(String args[]) throws UnknownHostException, SocketException{
 		/*Enumeration e = null;
 		try {
 			e = NetworkInterface.getNetworkInterfaces();
@@ -26,7 +27,24 @@ public class Tests {
 		        System.out.println(i.getHostAddress());
 		    }
 		}*/
-		 System.out.println(getIp());
+		 System.out.println("broadcast: "+getBroadcast().getHostAddress()+"\nip address:"+
+				 getIp());
+	}
+	
+	public static InetAddress getBroadcast() throws SocketException {
+		System.setProperty("java.net.preferIPv4Stack", "true");
+		for (Enumeration<NetworkInterface> niEnum = NetworkInterface
+				.getNetworkInterfaces(); niEnum.hasMoreElements();) {
+			NetworkInterface ni = niEnum.nextElement();
+			if (!ni.isLoopback()) {
+				for (InterfaceAddress interfaceAddress : ni
+						.getInterfaceAddresses()) {
+
+					return interfaceAddress.getBroadcast();
+				}
+			}
+		}
+		return null;
 	}
 	
 	public static String getIp(){

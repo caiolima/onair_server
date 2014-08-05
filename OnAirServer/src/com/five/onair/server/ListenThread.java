@@ -1,6 +1,5 @@
 package com.five.onair.server;
 
-import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.util.logging.Level;
@@ -8,13 +7,8 @@ import java.util.logging.Logger;
 
 import javax.swing.JTextArea;
 
-import net.sf.json.JSONObject;
 
-import com.five.onair.server.persistence.model.ApplicationList;
-import com.five.onair.server.utils.Configurations;
-
-
-public class UDPServer extends Thread {
+public class ListenThread extends Thread {
 		
 	@Override
 	public void interrupt() {
@@ -28,8 +22,8 @@ public class UDPServer extends Thread {
 	private static int numberThreadsCreated = 0; // thread's count
 	private static final int numberThreadsMax = 20;
 
-	public UDPServer(JTextArea out, DatagramSocket socket) {
-		UDPServer.out = out;
+	public ListenThread(JTextArea out, DatagramSocket socket) {
+		ListenThread.out = out;
 		this.socket=socket;
 	}
 	
@@ -62,7 +56,7 @@ public class UDPServer extends Thread {
 
 					// Send a response
 					if(numberThreadsCreated < numberThreadsMax)
-						new ResponseThread(packet, socket).start();
+						new ResponseThread(packet).start();
 						
 					
 				} catch (Exception e) {
@@ -70,7 +64,7 @@ public class UDPServer extends Thread {
 				}
 			}
 		} catch (Exception ex) {
-			Logger.getLogger(UDPServer.class.getName()).log(Level.SEVERE,
+			Logger.getLogger(ListenThread.class.getName()).log(Level.SEVERE,
 					null, ex);
 		}
 	}
